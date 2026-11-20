@@ -1,0 +1,20 @@
+---
+layout: null
+---
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//rashruf//feestdagen-nl-sr//NL
+METHOD:PUBLISH
+X-WR-CALNAME:Feestdagen NL & Suriname
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+{% for f in site.data.feestdagen %}BEGIN:VEVENT
+UID:fd-{{ f.d }}@rashruf
+DTSTAMP:20261120T000000Z
+DTSTART;VALUE=DATE:{{ f.d }}
+DTEND;VALUE=DATE:{{ f.e }}
+SUMMARY:{{ f.s }}
+DESCRIPTION:{{ f.o }}
+TRANSP:TRANSPARENT
+END:VEVENT
+{% endfor %}END:VCALENDAR
